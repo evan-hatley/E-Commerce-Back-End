@@ -27,6 +27,8 @@ router.get('/:id', async (req, res) => {
 });
 
 // Creates a product
+// Used example product for video demo
+
 router.post('/', async (req, res) => {
   /* req.body should look like this...
     {
@@ -99,10 +101,10 @@ router.put('/:id', async (req, res) => {
 // Deletes a prodcut
 router.delete('/:id', async (req, res) => {
   try {
-    const deletedProduct = await Product.destroy({
+    const products = await Product.destroy({
       where: { id: req.params.id }
     });
-    res.status(200).json(deletedProduct);
+    res.status(200).json(products);
   } catch (err) {
     res.status(500).json(err);
   }
